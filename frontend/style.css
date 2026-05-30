@@ -1,0 +1,327 @@
+/* CSS Utilizado em index.html */
+
+@font-face {
+  font-family: 'Funky Glitz';
+  src: url('assets/fonts/funky-glitz.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg-primary: #400000;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --bg-card-hover: rgba(0, 0, 0, 0.05);
+  --bg-glass: rgba(0, 0, 0, 0.03);
+  --bg-glass-border: rgba(0, 0, 0, 0.08);
+  --accent-1: #f07894;
+  --accent-2: #eb5f7d;
+  --accent-3: #ea5674;
+  --accent-4: #f85e7c;
+  --gradient-primary: linear-gradient(135deg, #c0392b, #e8486a, #ff6b9d);
+  --gradient-soft: linear-gradient(135deg, rgba(192, 57, 43, 0.08), rgba(255, 107, 157, 0.08));
+  --gradient-ring: conic-gradient(from 220deg, #c0392b, #e8486a, #ff6b9d, #f97316, #eab308, #22c55e, #06b6d4, #c0392b);
+  --text-primary: #292929;
+  --text-secondary: rgba(17, 17, 24, 0.6);
+  --text-muted: rgba(17, 17, 24, 0.38);
+  --color-success: #16a34a;
+  --color-warning: #ca8a04;
+  --color-danger: #dc2626;
+  --color-info: #0891b2;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-glow: 0 0 60px rgba(192, 57, 43, 0.2);
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.18);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 52% 48%, #ffebf5 10%, transparent 15%),
+    radial-gradient(circle at 50% 50%, #ffbcdd 20%, transparent 20%),
+    radial-gradient(circle at 40% 40%, #ff0080 20%, transparent 21%),
+    radial-gradient(circle at 60% 60%, #ff1288 20%, transparent 21%),
+    radial-gradient(circle at 60% 40%, #ff2c96 20%, transparent 21%),
+    radial-gradient(circle at 40% 60%, #ff44a1 20%, transparent 21%);
+  background-size: 100px 100px;
+  opacity: 0.15;
+  z-index: -5;
+  pointer-events: none;
+}
+
+.stickers {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sticker {
+  position: absolute;
+  opacity: 1;
+  filter: blur(0.4px);
+  user-select: none;
+}
+
+.s1 {
+  width: 120px;
+  top: 8%;
+  left: 4%;
+  transform: rotate(-15deg);
+}
+
+.s2 {
+  width: 90px;
+  top: 20%;
+  right: 6%;
+  transform: rotate(-5deg);
+}
+
+.s3 {
+  width: 140px;
+  top: 75%;
+  left: 10%;
+  transform: rotate(25deg);
+}
+
+.s4 {
+  width: 250px;
+  top: 75%;
+  right: 5%;
+  transform: rotate(-2deg);
+  filter: brightness(0) invert(1);
+}
+
+.gradient-text {
+  font-family: 'Funky Glitz';
+  font-size: 5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--gradient-primary);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  box-shadow: 0 4px 20px rgba(192, 57, 43, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #400000;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+
+#ranking-section {
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+.ranking-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.ranking-header h1 {
+  font-family: 'Funky Glitz';
+  font-size: 4rem;
+  color: #f8f8f8;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ranking-header p {
+  font-family: var(--font-sans);
+  color: #f8f8f8;
+  font-size: 0.92rem;
+}
+
+.ranking-header p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  width: 100%;
+  max-width: 400px;
+  height: 4px;
+  background: rgba(0,0,0,0.06);
+  border-radius: var(--radius-full);
+  margin: 1.25rem auto 0.5rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.4s var(--ease-out);
+}
+
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ranking-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  min-height: 420px;
+  box-shadow: var(--shadow-card);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b0000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ranking-list {
+  /* Este seletor é usado, mas não tem regras próprias, apenas modifica .song-card */
+}
+
+.ranking-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.ranking-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .ranking-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    min-height: auto;
+  }
+
+  .ranking-header h2 { /* Note: O seletor é h2, mas no HTML é h1. Pode ser um erro. */
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ranking-container {
+    padding: 0 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
