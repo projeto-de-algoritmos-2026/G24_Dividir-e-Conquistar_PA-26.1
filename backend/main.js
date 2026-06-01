@@ -126,19 +126,19 @@ function calculateAffinity() {
     let message = "";
 
     if (similarity >= 90) {
-        title = "🔥 Almas Gêmeas Musicais!";
+        title = "Almas Gêmeas Musicais!";
         message = "Seu gosto é perfeitamente alinhado com o gabarito oficial! Uma afinidade incrível.";
     } else if (similarity >= 70) {
-        title = "✨ Ótima Conexão!";
+        title = "Ótima Conexão!";
         message = "Vocês compartilham de preferências extremamente parecidas. Têm muito em comum!";
     } else if (similarity >= 50) {
-        title = "👍 Boa Afinidade!";
+        title = "Boa Afinidade!";
         message = "Algumas escolhas são idênticas, mas outras divergem. Vocês ainda têm um bom papo sobre música!";
     } else if (similarity >= 30) {
-        title = "🤔 Gostos Distintos...";
+        title = "Gostos Distintos...";
         message = "Você tem uma visão única do álbum. Embora haja pontos em comum, suas preferências seguem outro caminho.";
     } else {
-        title = "😅 Opostos Musicais!";
+        title = "Opostos Musicais!";
         message = "Gostos completamente diferentes! Mas não se preocupe, os opostos se atraem e a variedade faz a música ser incrível.";
     }
 
