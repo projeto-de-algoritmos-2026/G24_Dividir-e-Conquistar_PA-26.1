@@ -785,3 +785,187 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.35);
 }
+
+/* Section Toggling */
+.section {
+  display: none !important;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.section.active {
+  display: flex !important;
+  opacity: 1;
+}
+
+/* Visualizer Container & Card */
+#visualizer-card {
+  margin-top: 2rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--bg-glass-border);
+}
+
+/* Controls */
+.viz-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  background: var(--gradient-soft);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--bg-glass-border);
+}
+
+.viz-controls button {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--accent-3);
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.88rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.viz-controls button:hover {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+#step-counter {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Stage */
+.viz-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  min-height: 120px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.viz-group {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(0,0,0,0.015);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.viz-divider {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+/* Cards */
+.viz-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s var(--ease-out);
+  animation: chipIn 0.3s var(--ease-spring);
+}
+
+.viz-pos {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.viz-name {
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* Card States */
+.viz-card.neutral {
+  border-left: 3px solid var(--text-muted);
+}
+
+.viz-card.comparing {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.viz-card.ok {
+  border-left: 3px solid var(--color-success);
+  background: rgba(22, 163, 74, 0.02);
+}
+
+.viz-card.inversion {
+  border-left: 3px solid var(--color-danger);
+  background: rgba(220, 38, 38, 0.02);
+  animation: pulseDanger 0.8s infinite alternate;
+}
+
+.viz-card.merged {
+  border-left: 3px solid var(--color-info);
+  background: rgba(8, 145, 178, 0.02);
+}
+
+@keyframes pulseDanger {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 12px 4px rgba(220, 38, 38, 0.2);
+  }
+}
+
+/* Description & Inv Count */
+.viz-description {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  min-height: 24px;
+}
+
+.viz-inversions {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-3);
+}
