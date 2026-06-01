@@ -1,0 +1,52 @@
+{
+    "title": "Fancy That",
+    "tracks": [
+        {
+            "id": 1,
+            "title": "Illegal"
+        },
+        {
+            "id": 2,
+            "title": "Girl Like Me"
+        },
+        {
+            "id": 3,
+            "title": "Tonight"
+        },
+        {
+            "id": 4,
+            "title": "Stars"
+        },
+        {
+            "id": 5,
+            "title": "Intermission"
+        },
+        {
+            "id": 6,
+            "title": "Noises"
+        },
+        {
+            "id": 7,
+            "title": "Nice to Know You"
+        },
+        {
+            "id": 8,
+            "title": "Stateside"
+        },
+        {
+            "id": 9,
+            "title": "Romeo"
+        }
+    ],
+    "goalRank": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ]
+}
