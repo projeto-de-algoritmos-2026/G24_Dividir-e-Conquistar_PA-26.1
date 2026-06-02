@@ -1,9 +1,25 @@
 const userRank = [];
+let albumData; // Variável para armazenar os dados do álbum
 
+// Função para carregar os dados do álbum do arquivo JSON
+async function loadAlbum() {
+    try {
+        const response = await fetch('../backend/ranking.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Não foi possível carregar os dados do álbum:", error);
+        return null;
+    }
+}
 // inicia as musicas
 async function init() {
-    const data = await loadAlbum();
-    renderAvailable(data.tracks);
+    albumData = await loadAlbum();
+    if (albumData && albumData.tracks) {
+        renderAvailable(albumData.tracks);
+    }
 }
 
 // renderiza as musicas na lista do front
